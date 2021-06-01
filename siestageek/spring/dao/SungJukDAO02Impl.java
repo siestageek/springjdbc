@@ -23,24 +23,26 @@ public class SungJukDAO02Impl implements SungJukDAO {
 
 	@Override
 	public List<SungJuk> selectAllSungJuk() {
-		return null;
+		return sqlSession.selectList("sungjuk.selectSungjuk");
 	}
 	
 	@Override
 	public SungJuk selectOneSungJuk(int sjno) {
-		return null;
+		return sqlSession.selectOne(
+					"sungjuk.selectOneSungjuk", sjno);
 	}
 	
 		
 	@Override
 	public void updateSungJuk(SungJuk sj) {
-		
+		int cnt = sqlSession.update("sungjuk.updateSungjuk", sj);
+		if (cnt > 0) System.out.println("데이터 수정완료!");
 	}
-
 	
 	@Override
 	public void deleteSungJuk(int sjno) {
-		
+		int cnt = sqlSession.delete("sungjuk.deleteSungjuk", sjno);
+		if (cnt > 0) System.out.println("데이터 삭제완료!");
 	}
 	
 

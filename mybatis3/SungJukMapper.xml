@@ -8,9 +8,35 @@
 		values (#{name},#{kor},#{eng},#{mat}, #{tot},#{avg},#{grd})
 	</insert>
 	
-	<!-- <select id=""></select>
-	<select id=""></select>
-	<update id=""></update>
-	<delete id=""></delete> -->
+	<select id="selectSungjuk" statementType="PREPARED"
+		resultType="siestageek.spring.vo.SungJuk">
+		select sjno, name, kor, eng, mat, regdate 
+		from sungjuk order by sjno desc
+	</select>
+	
+	<select id="selectOneSungjuk" statementType="PREPARED"
+		parameterType="Integer"
+		resultType="siestageek.spring.vo.SungJuk">
+		select * from sungjuk where sjno = #{sjno}
+	</select>
+	
+	<update id="updateSungjuk" statementType="PREPARED"
+		parameterType="siestageek.spring.vo.SungJuk">
+		update sungjuk set kor=#{kor}, eng=#{eng}, mat=#{mat},
+			tot=#{tot}, mean=#{avg}, grd=#{grd} 
+		where sjno=#{sjno} 
+	</update>
+	
+	<delete id="deleteSungjuk" statementType="PREPARED"
+		parameterType="Integer">
+		delete from sungjuk where sjno = #{sjno}
+	</delete>
 
 </mapper>
+
+
+
+
+
+
+

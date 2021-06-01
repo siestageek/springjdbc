@@ -8,9 +8,13 @@ public class SungJuk {
     protected int mat;
     protected int tot;
     protected double avg;
+    protected double mean;
     protected char grd;
     protected String regdate;
 
+    public SungJuk() {
+	}  // mybatis 사용시 반드시 작성할 것!
+    
     public SungJuk(String name, int kor, int eng, int mat) {
         this.name = name;
         this.kor = kor;
@@ -90,12 +94,20 @@ public class SungJuk {
         this.regdate = regdate;
     }
 
-    @Override
+    public double getMean() {
+		return mean;
+	}
+
+	public void setMean(double mean) {
+		this.mean = mean;
+	}
+
+	@Override
     public String toString() {
         String fmt = "{name:'%s', kor:%d, eng:%d, mat:%d," +
-                     "tot:%d, avg:%.1f, grd:'%s'}";
+                     "tot:%d, avg:%.1f, mean:%.1f, grd:'%s'}\n";
         String result = String.format(
-                    fmt,name,kor,eng,mat,tot,avg,grd);
+                    fmt,name,kor,eng,mat,tot,avg,mean,grd);
         return result;
     }
 }	

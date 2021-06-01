@@ -57,7 +57,7 @@ public class SungJukService02Impl implements SungJukService {
 	@Override
 	public void modifySungJuk() {
 		SungJuk sj = new SungJuk(null,78,85,65);
-		sj.setSjno("5");
+		sj.setSjno("8");
 		computeSungJuk(sj);
 		
 		sjdao02.updateSungJuk(sj);
@@ -65,7 +65,7 @@ public class SungJukService02Impl implements SungJukService {
 
 	@Override
 	public void removeSungJuk() {
-		sjdao02.deleteSungJuk(5);		
+		sjdao02.deleteSungJuk(7);		
 	}	
 	
 }
